@@ -1,28 +1,23 @@
 # homebrew-qt
-`brew install qt --with-qtwebkit` as bottle
+`brew install qt@5.7 --with-qtwebkit` as bottle
 
 ## Why?
 
-There are some tools, e.g. 'capybara-webkit', that require you to have Qt5 with webkit.
-On macOs you had to run `brew install qt --with-qtwebkit` until now.
-It would have started to compile Qt on your machine which would have taken hours to complete
-even on brand new hardware, because Qt is just huge.
+There are some tools, e.g. 'capybara-webkit', that require you to have Qt5 with QtWebKit. Unfortunately, Homebrew does not ship a compiled bottle for Qt with QtWebKit.
+To install all the required dependencies on macOS, you would have to run `brew install qt@5.7 --with-qtwebkit` and wait several hours for the whole Qt suite to compile from scratch with QtWebKit.
 
 ## How to use it?
 
-What we did is compiling QT with webkit, build a 'homebrew bottle' out of it, and share it with you.
-All you need to do now is:
+    brew uninstall qt5 qt qt@5.5 qt@5.7
+    brew install maxfierke/qt/qt@5.7
 
-    brew uninstall qt5 qt
-    brew install ninech/qt/qt
-
-And you're good to go.
+And you're good to go. This will install a pre-compiled bottle (currently only on High Sierra).
 
 ## Troubleshooting
 
 ### It can't find `cmake`
 
-You did not read the homebrew caveats then. Run `brew info qt` to read them again.
+`cmake` is not linked automatically to `/usr/local/bin/`. Run `brew info qt@5.7` to check out the caveats. If it suits your environment, you may just run `brew link --force qt@5.7`, though this is not recommended if you're using Qt or qmake to build things outside of Homebrew.
 
 ## Updating the bottle
 

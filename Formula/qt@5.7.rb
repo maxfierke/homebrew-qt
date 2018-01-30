@@ -1,22 +1,5 @@
 # Patches for Qt5 must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
-
-
-# I solemly swear I am up to no good
-class CurlDownloadStrategy < AbstractFileDownloadStrategy
-  private def _fetch(val = nil, specs = {})
-    url = @url
-    url = url.gsub!('@', '.') if url && url =~ /https:\/\/github.com/
-
-    if ENV["HOMEBREW_ARTIFACT_DOMAIN"]
-      url = url.sub(%r{^((ht|f)tps?://)?}, ENV["HOMEBREW_ARTIFACT_DOMAIN"].chomp("/") + "/")
-      ohai "Downloading from #{url}"
-    end
-
-    curl_download resolved_url(url), to: temporary_path
-  end
-end
-
 class QtAT57 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"

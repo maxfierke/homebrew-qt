@@ -9,6 +9,7 @@ class QtAT57 < Formula
   head "https://code.qt.io/qt/qt5.git", :branch => "5.7", :shallow => false
 
   bottle do
+    root_url "https://github.com/maxfierke/homebrew-qt/releases/download/v5.7.1"
     rebuild 1
     sha256 "ce79c29f545ddd4e004496b9e71477af767d3a157966514e8dcf45f19c8bf0cb" => :high_sierra
   end

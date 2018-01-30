@@ -4,7 +4,7 @@
 
 # I solemly swear I am up to no good
 class CurlDownloadStrategy < AbstractFileDownloadStrategy
-  def _fetch(val = nil, specs = {})
+  private def _fetch(val = nil, specs = {})
     url = @url
     url = url.gsub!('@', '.') if url && url =~ /https:\/\/github.com/
 

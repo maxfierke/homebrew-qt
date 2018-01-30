@@ -1,5 +1,15 @@
 # Patches for Qt5 must be at the very least submitted to Qt's Gerrit codereview
 # rather than their bug-report Jira. The latter is rarely reviewed by Qt.
+
+
+# I solemly swear I am up to no good
+class Resource
+  def url(val = nil, specs = {})
+    val = val.gsub!('@', '.') if val && val =~ /https:\/\/github.com/
+    super(val, specs)
+  end
+end
+
 class QtAT57 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"

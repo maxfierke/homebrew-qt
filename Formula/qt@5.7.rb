@@ -3,10 +3,17 @@
 
 
 # I solemly swear I am up to no good
-class Resource
-  def url(val = nil, specs = {})
-    val = val.gsub!('@', '.') if val && val =~ /https:\/\/github.com/
-    super(val, specs)
+class CurlDownloadStrategy < AbstractFileDownloadStrategy
+  def _fetch(val = nil, specs = {})
+    url = @url
+    url = url.gsub!('@', '.') if url && url =~ /https:\/\/github.com/
+
+    if ENV["HOMEBREW_ARTIFACT_DOMAIN"]
+      url = url.sub(%r{^((ht|f)tps?://)?}, ENV["HOMEBREW_ARTIFACT_DOMAIN"].chomp("/") + "/")
+      ohai "Downloading from #{url}"
+    end
+
+    curl_download resolved_url(url), to: temporary_path
   end
 end
 

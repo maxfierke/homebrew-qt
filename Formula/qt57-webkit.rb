@@ -11,7 +11,7 @@ class Qt57Webkit < Formula
   bottle do
     root_url "https://github.com/maxfierke/homebrew-qt/releases/download/v5.7.1"
     rebuild 1
-    sha256 "ce79c29f545ddd4e004496b9e71477af767d3a157966514e8dcf45f19c8bf0cb" => :high_sierra
+    sha256 "2eaa899e8c03fc74fac30e4b0c559c673323327f0c5f134774d8c29a7a669d1f" => :high_sierra
   end
 
   keg_only :versioned_formula

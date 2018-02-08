@@ -9,7 +9,7 @@ To install all the required dependencies on macOS, you would have to run `brew i
 ## How to use it?
 
     brew uninstall qt5 qt qt@5.5 qt@5.7
-    brew install maxfierke/qt/qt@5.7
+    brew install maxfierke/qt/qt57-webkit
 
 And you're good to go. This will install a pre-compiled bottle (currently only on High Sierra).
 
@@ -17,7 +17,7 @@ And you're good to go. This will install a pre-compiled bottle (currently only o
 
 ### It can't find `cmake`
 
-`cmake` is not linked automatically to `/usr/local/bin/`. Run `brew info qt@5.7` to check out the caveats. If it suits your environment, you may just run `brew link --force qt@5.7`, though this is not recommended if you're using Qt or qmake to build things outside of Homebrew.
+`cmake` is not linked automatically to `/usr/local/bin/`. Run `brew info qt57-webkit` to check out the caveats. If it suits your environment, you may just run `brew link --force qt57-webkit`, though this is not recommended if you're using Qt or qmake to build things outside of Homebrew.
 
 ## Updating the bottle
 
